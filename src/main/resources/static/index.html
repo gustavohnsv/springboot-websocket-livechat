@@ -1,0 +1,85 @@
+<!-- Créditos: https://www.youtube.com/watch?v=TywlS9iAZCM&t=3099s -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Chat w/ WebSockets</title>
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body class="flex flex-col min-h-screen">
+    <div class="flex justify-center items-center min-w-screen min-h-screen bg-slate-700" id="username-page">
+        <div class="w-[20vw] flex flex-col p-4 bg-white rounded-sm shadow-md gap-2">
+            <h1 class="text-center text-black font-medium text-2xl">
+                Bem vindo! Insira um nome para entrar na conversa!
+            </h1>
+            <div class="flex flex-col justify-center gap-4 m-2">
+                <span class="text-sm text-slate-500 font-light">
+                    - Escolha um nome único e se junte a outras pessoas em um bate-papo ao vivo.
+                </span>
+                <span class="text-sm text-slate-500 font-light">
+                    - Seja respeitoso e troque mensagens, ideias, piadas e muito mais.
+                </span>
+                <span class="text-sm text-slate-500 font-light">
+                    - Aproveite a experiência e divirta-se!
+                </span>
+            </div>
+            <form class="mt-auto mb-2" id="username-form" name="username-form">
+                <div class="flex gap-2">
+                    <div class="flex flex-grow justify-center">
+                        <input
+                                class="w-full bg-slate-100 p-2 rounded-md shadow-sm text-black border-none outline-none"
+                                type="text" id="name"
+                                placeholder="Digite um nome!"
+                                autocomplete="off"
+                        />
+                    </div>
+                    <div class="flex justify-center">
+                        <button
+                                type="submit"
+                                class="font-semibold text-white bg-green-500 p-2 rounded-md border-none hover:bg-green-600 transition duration-200 outline-none"
+                        >
+                            Entrar na conversa
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="chat-page" class="hidden flex justify-center items-center min-w-screen min-h-screen bg-slate-700">
+        <div class="w-[90vw] h-[90vh] flex flex-col pt-12 pb-12 pl-4 pr-4 bg-white rounded-sm shadow-md">
+            <div class="flex justify-center items-center text-black font-medium text-2xl p-2 border-b-3 border-slate-100">
+                <h2 class="tracking-wider"> Chat ao vivo usando Spring + WebSocket </h2>
+            </div>
+            <div class="h-100 flex justify-center items-center p-2" id="connecting">
+                Connecting...
+            </div>
+            <ul class="overflow-y-auto mb-4 mt-4" id="messages">
+            </ul>
+                <form class="mt-auto" id="message-form" name="message-form">
+                <div class="flex flex-row bg-slate-100 rounded-xs shadow-sm p-2 border-b-2 border-slate-300">
+                    <textarea
+                            class="resize-none outline-none h-12 p-1 flex-grow"
+                            id="message"
+                            placeholder="Digite uma mensagem!"
+                            autocomplete="off"
+                    ></textarea>
+                    <div class="flex justify-end">
+                        <button
+                                type="submit"
+                                class="font-semibold text-white bg-green-500 p-2 rounded-md m-1 border-none hover:bg-green-600 transition duration-200 outline-none"
+                        >
+                            Enviar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <span class="fixed tracking-wider w-full text-center p-4 text-white z-50">
+        Interface feita utilizando TailwindCSS por: @gustavohnsv.
+    </span>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.2/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
