@@ -6,9 +6,9 @@
     <title>Live Chat w/ WebSockets</title>
     <link href="./output.css" rel="stylesheet">
 </head>
-<body class="flex flex-col min-h-screen">
-    <div class="flex justify-center items-center min-w-screen min-h-screen bg-slate-700" id="username-page">
-        <div class="w-[20vw] flex flex-col p-4 bg-white rounded-sm shadow-md gap-2">
+<body class="flex flex-col min-w-screen min-h-screen">
+    <div class="flex justify-center items-center min-w-screen min-h-screen bg-slate-700 p-4" id="username-page">
+        <div class="md:w-full md:h-full lg:w-[30vw] 2xl:w-[20vw] flex flex-col p-4 bg-white rounded-sm shadow-md gap-2">
             <h1 class="text-center text-black font-medium text-2xl">
                 Bem vindo! Insira um nome para entrar na conversa!
             </h1>
@@ -57,12 +57,13 @@
             </ul>
                 <form class="mt-auto" id="message-form" name="message-form">
                 <div class="flex flex-row bg-slate-100 rounded-xs shadow-sm p-2 border-b-2 border-slate-300">
-                    <textarea
+                    <input
                             class="resize-none outline-none h-12 p-1 flex-grow"
+                            type="text"
                             id="message"
                             placeholder="Digite uma mensagem!"
                             autocomplete="off"
-                    ></textarea>
+                    />
                     <div class="flex justify-end">
                         <button
                                 type="submit"
